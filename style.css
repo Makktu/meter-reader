@@ -25,6 +25,7 @@ input {
     outline: none;
     background-color: rgb(19, 17, 17);
     color: rgb(236, 222, 222);
+    /* border: 0; */
 }
 
 .btnctr {
@@ -37,4 +38,12 @@ button {
     outline: none;
     cursor: pointer;
     background-color: sandybrown;
+}
+
+.messages {
+    text-align: center;
+    font-size: 1.5rem;
+    height: 5rem;
+    width: 23.6rem;
+    margin-top: 10px;
 }
