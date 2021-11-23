@@ -17,3 +17,24 @@ body {
     background-color: rgb(19, 17, 17);
     color: rgb(236, 222, 222);
 }
+
+input {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    outline: none;
+    background-color: rgb(19, 17, 17);
+    color: rgb(236, 222, 222);
+}
+
+.btnctr {
+    text-align: center;
+}
+
+button {
+    font-size: 2rem;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    background-color: sandybrown;
+}
