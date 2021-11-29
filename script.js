@@ -2,7 +2,7 @@
 
 function formatTimeDate() {
     let currentTimeDate = new Date();
-    timeDate.textContent = currentTimeDate.toString().slice(0, 21);
+    messageArea.textContent = currentTimeDate.toString().slice(0, 21);
 }
 
 const messageArea = document.querySelector(".messages");
@@ -13,7 +13,8 @@ const readingField = document.getElementById("reading");
 
 okBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    // stuff
+    const readingEntered = readingField.value;
+    console.log(readingEntered);
 });
 
 changeTimeDateBtn.addEventListener("click", () => {

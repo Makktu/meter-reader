@@ -1,8 +1,8 @@
-# WHERE AM I
+# METER READER
 
-Just a toy app for an exercise in a course.
+Just a toy app.
 
--   Takes GPS coordinates
--   performs an AJAX call
--   handles any errors
--   outputs a result telling the user their location.
+-   Takes electricity meter readings
+-   calculates amount used & price since last reading
+-   stores results in a small local database with all previous entries
+-   shows data based on user selection of day/week/month etc
