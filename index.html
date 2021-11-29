@@ -13,22 +13,24 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Where Am I?</title>
+        <title>Meter Reader</title>
     </head>
     <body>
-        <h1>Enter the GPS coordinates</h1>
+        <h1>Enter New Meter Reading</h1>
+        <h1 class="timedatestamp"></h1>
+        <button class="change">Click to change Time or Date</button>
 
         <form id="form">
             <input
-                id="lat"
+                id="reading"
                 type="text"
                 value=""
-                placeholder="LATITUDE"
+                placeholder="ENTER READING"
                 autofocus
             />
             <br />
-            <input id="lon" type="text" value="" placeholder="LONGITUDE" />
-            <br />
+            <!-- <input id="lon" type="text" value="" placeholder="LONGITUDE" />
+            <br /> -->
 
             <div class="btnctr">
                 <button id="ok-btn">OK</button>

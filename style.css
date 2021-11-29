@@ -47,3 +47,12 @@ button {
     width: 23.6rem;
     margin-top: 10px;
 }
+
+.change {
+    font-size: 0.5rem;
+    background-color: aqua;
+}
+
+.timedatestamp {
+    font-size: 1rem;
+}
