@@ -1,8 +1,19 @@
 "use strict";
 
-const processEntry = function (readingEntered) {
-    let calcUsed = readingEntered - lastReading;
+function checkCost(cost) {
+    let stringCost = cost + "";
+    for (let j = 0; j < stringCost.length; j++) {
+        if (stringCost.charAt(j) === ".") {
+            // check if 1 or 2 digits following; if 1, need to append a '0'
+            if (stringCost.length - j === 2) {
+                stringCost += "0";
+            }
+            return stringCost;
+        }
+    }
+}
 
+const processEntry = function (readingEntered) {
     const readingTime = new Date();
 
     day = days[readingTime.getDay()];
@@ -52,12 +63,18 @@ function refreshScreen() {
             thisReading.cost = "";
         }
 
+        // ! here we check the 'cost' and make sure £4.2 is rendered as £4.20
+
+        if (thisReading.cost) {
+            thisReading.cost = checkCost(thisReading.cost);
+        }
+
         showRecentReadings += `<br>${thisReading.day} ${thisReading.date} @ ${
             thisReading.time
         } - - - ${thisReading.reading} <span style = "color: lightgreen">(${
             tempReading === "-" ? "-" : "+" + tempReading
         } kW/h)</span> - ${
-            thisReading.cost !== "" ? "£" + thisReading.cost + "p" : "n/a"
+            thisReading.cost !== "" ? "£" + thisReading.cost : "n/a"
         }`;
         tempReading = thisReading.reading;
     });
