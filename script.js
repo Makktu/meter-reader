@@ -50,10 +50,12 @@ function formatTimeDate() {
 }
 
 function refreshScreen() {
+    console.log(allReadings);
     formatTimeDate();
     readingField.value = "";
     let showRecentReadings = "";
     let tempReading;
+
     allReadings.forEach((thisReading) => {
         if (tempReading) {
             tempReading = thisReading.reading - tempReading;
@@ -63,19 +65,20 @@ function refreshScreen() {
             thisReading.cost = "";
         }
 
-        // ! here we check the 'cost' and make sure £4.2 is rendered as £4.20
+        // ! check 'cost' e.g. £4.2 rendered as £4.20
 
         if (thisReading.cost) {
             thisReading.cost = checkCost(thisReading.cost);
         }
 
-        showRecentReadings += `<br>${thisReading.day} ${thisReading.date} @ ${
-            thisReading.time
-        } - - - ${thisReading.reading} <span style = "color: lightgreen">(${
-            tempReading === "-" ? "-" : "+" + tempReading
-        } kW/h)</span> - ${
-            thisReading.cost !== "" ? "£" + thisReading.cost : "n/a"
-        }`;
+        showRecentReadings =
+            `<br>${thisReading.day} ${thisReading.date} @ ${
+                thisReading.time
+            }<br>${thisReading.reading} <span style = "color: red">(${
+                tempReading === "-" ? "-" : "+" + tempReading
+            } kW/h)</span><br>${
+                thisReading.cost !== "" ? "£" + thisReading.cost : "n/a"
+            }<br>` + showRecentReadings;
         tempReading = thisReading.reading;
     });
     recentReadingsArea.innerHTML = showRecentReadings;

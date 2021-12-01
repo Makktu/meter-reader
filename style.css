@@ -12,19 +12,38 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* my dark styling */
     background-color: rgb(19, 17, 17);
     color: rgb(236, 222, 222);
 }
 
+h1 {
+    font-size: 1.6rem;
+}
+
+.container {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 input {
     margin-bottom: 10px;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     outline: none;
     background-color: rgb(19, 17, 17);
     color: rgb(236, 222, 222);
+    width: 11.5rem;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    display: block;
+    margin: 0 auto;
     /* border: 0; */
 }
 
@@ -37,7 +56,7 @@ button {
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    background-color: sandybrown;
+    background-color: rgb(14, 172, 54);
 }
 
 .messages {
@@ -55,4 +74,12 @@ button {
 
 .timedatestamp {
     font-size: 1rem;
+}
+
+/* .form {
+    
+} */
+
+.recent-readings {
+    text-align: center;
 }
