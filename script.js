@@ -1,5 +1,14 @@
 "use strict";
 
+function setUnitPrice() {
+    if (!unitPrice) {
+        unitPrice = prompt("Enter Your Electricity Unit Price Per kW/h");
+        if (!unitPrice) setUnitPrice();
+        localStorage.setItem("UnitPrice", JSON.stringify(+unitPrice));
+        return unitPrice;
+    }
+}
+
 function checkCost(cost) {
     let stringCost = cost + "";
     for (let j = 0; j < stringCost.length; j++) {
@@ -56,10 +65,10 @@ function refreshScreen() {
     let showRecentReadings = "";
     let tempReading;
 
-    allReadings.forEach((thisReading) => {
+    allReadings.forEach((thisReading, idx) => {
         if (tempReading) {
             tempReading = thisReading.reading - tempReading;
-            thisReading.cost = tempReading * 0.21;
+            thisReading.cost = tempReading * unitPrice;
         } else {
             tempReading = "-";
             thisReading.cost = "";
@@ -79,6 +88,12 @@ function refreshScreen() {
             } kW/h)</span><br>${
                 thisReading.cost !== "" ? "£" + thisReading.cost : "n/a"
             }<br>` + showRecentReadings;
+
+        if (idx === allReadings.length - 1) {
+            showRecentReadings =
+                `kw/H Unit Price: ${+unitPrice}p<br><button class='kwBtn'>change this</button><br>` +
+                showRecentReadings;
+        }
         tempReading = thisReading.reading;
     });
     recentReadingsArea.innerHTML = showRecentReadings;
@@ -86,7 +101,7 @@ function refreshScreen() {
 
 // check for local storage and load if present
 
-let allReadings;
+let allReadings, unitPrice;
 
 if (localStorage.getItem("MeterReadings") === null) {
     allReadings = [
@@ -123,6 +138,12 @@ if (localStorage.getItem("MeterReadings") === null) {
     ];
 } else {
     allReadings = JSON.parse(localStorage.getItem("MeterReadings"));
+}
+
+if (localStorage.getItem("UnitPrice") === null) {
+    unitPrice = setUnitPrice();
+} else {
+    unitPrice = localStorage.getItem("UnitPrice");
 }
 
 const messageArea = document.querySelector(".messages");

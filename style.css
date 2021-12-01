@@ -83,3 +83,8 @@ button {
 .recent-readings {
     text-align: center;
 }
+
+.kwBtn {
+    font-size: 0.5rem;
+    background-color: aqua;
+}
